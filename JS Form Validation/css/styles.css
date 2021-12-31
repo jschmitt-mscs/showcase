@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Serif&display=swap');
+
+table, th, tr, td {
+    border: 1px solid black;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    font-family: 'PT Serif', serif;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
