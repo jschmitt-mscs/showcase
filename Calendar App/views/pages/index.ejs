@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Super Awesome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="/javascript/functions.js"></script>
+    <script src="/javascript/jq.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<header>
+    <%- include('../partials/header'); -%>
+</header>
+
+<script>
+let initData = <%- JSON.stringify(data) %>;
+
+</script>
+
+<body>
+    <div class="row">
+        <div class="modal fade" id="newEventModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Add a new event...</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form class="newEvent" action="/newEvent" method="post" onsubmit="return validateNewEvent()" name="newEvent">
+
+
+
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="eventStartDay">Event Start Day:</label>
+                                            <input type="date" id="eventStartDay" name="eventStartDay" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="eventStartTime">Event Start Time:   </label>
+                                            <input type="time" id="eventStartTime" name="eventStartTime" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="eventEndDay">Event End Day:</label>
+                                            <input type="date" id="eventEndDay" name="eventEndDay" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="eventEndTime">Event End Time:</label>
+                                            <input type="time" id="eventEndTime" name="eventEndTime" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="checkbox">
+                                <label><input type="checkbox" id="allDay">All day?</label>
+                            </div>
+                            <div class="alert alert-danger" id="validationWarning">
+                                <strong>Danger!</strong> The end time and date must be later than the start date and time.
+                              </div>
+                            <div class=form-group>
+                                <label for="eventTitle">Event Title: </label>
+                                <input type="text" class="form-control" id="eventTitle" name="eventTitle">
+                            </div>
+                            <div class=form-group>
+                                <label for="eventDescription">Event Description: </label>
+                                <textarea class="form-control" rows="5" id="eventDescription" name="eventDescription"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" id="monthyear">1234</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" data-toggle="modal" data-target="#newEventModal">Add Event</a></li>
+                    <li><a href="#" id="dayView">Day View</a></li>
+                    <li><a href="#" id="testButton">Test Button</a></li>
+                    <li><a href="#" id="prevMonth">Prev Month</a></li>
+                    <li><a href="#" id="nextMonth">Next Month</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid cal1">
+
+            <h4 id="selectedDay"></h4>
+            <table class="tz table table-bordered table-responsive" id="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<footer>
+</footer>

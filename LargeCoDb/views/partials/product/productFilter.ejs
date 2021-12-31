@@ -1,0 +1,61 @@
+<div class="bg-light">
+    <h2 class="p-3">Product Filters</h2>
+    <div class="d-flex flex-wrap" id="controls">
+        <div class="pl-3">
+            <label for="prod_typeFilter" class="pr-2">Product Type: </label>
+            <select class="form-select " id="prod_typeFilter">
+                <option>All</option>
+                <% for (var i = 0; i < prod_types.length; i++) { %>
+                <option><%- JSON.parse(JSON.stringify(prod_types))[i].PROD_TYPE -%></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="pl-3">
+            <label for="prod_baseFilter" class="pr-2">Product Base: </label>
+            <select class="form-select" id="prod_baseFilter">
+                <option>All</option>
+                <% for (var i = 0; i < prod_bases.length; i++) { %>
+                <option><%- JSON.parse(JSON.stringify(prod_bases))[i].PROD_BASE -%></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="pl-3">
+            <label for="prod_categoryFilter" class="pr-2">Product Category: </label>
+            <select class="form-select" id="prod_categoryFilter">
+                <option>All</option>
+                <% for (var i = 0; i < prod_categories.length; i++) { %>
+                <option><%- JSON.parse(JSON.stringify(prod_categories))[i].PROD_CATEGORY -%></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-sm table-hover" id="productDataTable">
+    <thead>
+        <th>SKU</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Base</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>On Hand</th>
+    </thead>
+    <tbody id="productTableBody">
+        <% for(var i = 0; i < prod_data.length; i++) { %>
+            <tr>
+                <td data-label="Product SKU: " ><%= prod_data[i].prod_sku %></td>
+                <td data-label="Description: "><%= prod_data[i].prod_descript %></td>
+                <td data-label="Type: "><%= prod_data[i].prod_type %></td>
+                <td data-label="Base: "><%= prod_data[i].prod_base %></td>
+                <td data-label="Category: "><%= prod_data[i].prod_category %></td>
+                <td data-label="Price: "><%= prod_data[i].prod_price %></td>
+                <td data-label="QTY on Hand: "><%= prod_data[i].prod_qoh %></td>
+            </tr>
+            <% } %>
+
+    </tbody>
+
+</table>
+
+<%- JSON.stringify(JSON.parse(JSON.stringify(prod_types))) -%>

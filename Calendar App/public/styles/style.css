@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.newEvent {
+    padding: 10px;
+    background-color: lightgray;
+}
+
+.newEventBtn {
+    display: inline;
+}
+.navbar {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topnav1{
+    margin: 5px;
+}
+.cal1 {
+    padding: 20px;
+    margin-top: 4%;
+}
+
+.cellDate {
+    height: 100px;
+    width: 100px;
+}
+html {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tz{
+    padding: 10px;
+}
+
+.listElement {
+    list-style-type: none;
+    background-color: lightblue;
+}
+
+.navbar-nav>li, .navbar-nav {
+    float: left !important;
+}
+
+#validationWarning {
+    display: none;
+}
+
+@media only screen and (max-width: 480px){
+    .card-header{
+        padding: 2px;
+    }
+
+    .cal1 {
+        margin-top: 21%;
+    }
+
+    .calendarDay {
+        display:none;
+    }
+
+    .newEvent {
+        padding: 0px;
+        background-color: lightgray;
+    }
+
+    .container-fluid {
+        padding: 0px;
+    }
+
+    table, tbody, tr, td, th {
+        display: block;
+    }
+
+    thead, tfoot {
+        display: none;
+    }
+    
+    th, td {
+        border-collapse: collapse;
+        border: 1px solid black;
+        width: 100%;
+        padding-left: 50%;
+        line-height: 30px;
+    }
+
+    tbody td {
+        position: relative;
+        padding-left: 50%;
+
+    }
+
+    td::before {
+        content: attr(cellDate);
+        position: relative;
+        top: 0px;
+        left: 0px;
+        padding: 0px;
+        width: 40%;
+        line-height: 30px;
+    }
+
+    .cellDate {
+        height: auto;
+        width: auto;
+    }
+}

@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\javascript"
+		},
+		{
+			"path": "..\\..\\..\\javascriptDS"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "project3"
+	}
+}

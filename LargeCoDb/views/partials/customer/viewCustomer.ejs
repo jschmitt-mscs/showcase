@@ -1,0 +1,27 @@
+<div class="bg-light cust_table">
+    <div class="row">
+        <div class="col-4">
+            <h3>
+                Customer:
+            </h3>
+        </div>
+        <div class="col-6">
+            <h3>
+                <%= cust_data.cust_fname + ' ' + cust_data.cust_lname %>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>
+                Address:
+            </h3>
+        </div>
+        <div class="col-6">
+            <h4>
+                <%= cust_data.cust_street %> <br>
+                <%= cust_data.cust_city + ', ' + cust_data.cust_state + ' ' + cust_data.cust_zip %>
+            </h4>
+        </div>
+    </div>
+</div>

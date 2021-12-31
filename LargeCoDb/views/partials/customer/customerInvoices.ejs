@@ -1,0 +1,61 @@
+<%
+formatDate = function(date) {
+    var d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
+
+if (month.length < 2) 
+    month = '0' + month;
+if (day.length < 2) 
+    day = '0' + day;
+
+return [year, month, day].join('-');
+}
+%>
+<div class="row">
+    <div class="col invoices">
+        <table class="table table-bordered table-sm table-fit table-hover">
+            <thead>
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Invoice Date</th>
+                    <th>Invoice Total</th>
+                    <th>Employee ID</th>
+                </tr>
+            </thead>
+            <tbody id="customerInvoiceTableBody">
+                <% for(var i = 0; i < inv_data.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= inv_data[i].inv_num %>
+                    </td>
+                    <td>
+                        <%= formatDate(inv_data[i].inv_date) %>
+                    </td>
+                    <td>
+                        <%= inv_data[i].inv_total %>
+                    </td>
+                    <td>
+                        <%= inv_data[i].employee_id %>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="col line_items">
+        <table class="table table-bordered table-sm table-fit table-hover">
+            <thead>
+                <th>Line Number</th>
+                <th>Product SKU</th>
+                <th>Line QTY</th>
+                <th>Line Price</th>
+                <th>Total Price</th>
+            </thead>
+            <tbody id="lineItemTBody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
