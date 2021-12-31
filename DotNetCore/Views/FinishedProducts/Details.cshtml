@@ -1,0 +1,57 @@
+﻿@model jschmitt2747ex1i.Models.FinishedProduct
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>FinishedProduct</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FinishedProductName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FinishedProductName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FinishedProductDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FinishedProductDescription)
+        </dd>
+        <dt class="col-sm-2">
+            Components
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.ComponentProducts.FirstOrDefault().Product.ProductName)</th>
+                        <th>@Html.DisplayNameFor(model => model.ComponentProducts.FirstOrDefault().Product.ProductDescription)</th>
+                        <th>@Html.DisplayNameFor(model => model.ComponentProducts.FirstOrDefault().ComponentQuantity)</th>
+                        <th>@Html.DisplayNameFor(model => model.ComponentProducts.FirstOrDefault().UnitOfMeasure.UnitOfMeasureDescription)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ComponentProduct comp in Model.ComponentProducts)
+                    {
+                        
+                    <tr>
+                        <td>@comp.Product.ProductName</td>
+                        <td>@comp.Product.ProductDescription</td>
+                        <td>@comp.ComponentQuantity</td>
+                        <td>@comp.UnitOfMeasure.UnitOfMeasureDescription</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FinishedProductId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<jschmitt2747ex1i.Models.ComponentsViewModel>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Component Product Statistics</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.productName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.finalProductCount)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.finalProductCount)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
